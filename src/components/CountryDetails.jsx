@@ -9,10 +9,12 @@ function CountryDetails({ countryList }) {
 
   const { countryId } = useParams()
 
+  // iterations 2-3 code for finding the data from a JSON 
   // useEffect(() => {
   //   setCountry(countryList.find(countryChecked => countryChecked.alpha3Code === countryId))
   // }, [countryList, countryId]);
 
+  // sets the original page for rendering one country data 
   // const selectedCountry = countryList.find(countryChecked => countryChecked.alpha3Code === countryId)
 
   // original code for useEffect - Omar why is this not working?
@@ -22,9 +24,9 @@ function CountryDetails({ countryList }) {
   //     return countryId === countryChecked.alpha3Code
   //   })
   //   setCountry(selectedCountry)
-
   // }, [countryId, countryList]);
 
+  // While mapping...
   // when do we need a key and when do we not?? (maping, navlink) why??
 
   useEffect(() => {
@@ -77,7 +79,6 @@ function CountryDetails({ countryList }) {
             </tr>
           </tbody>
         </table>
-
       </div>
     );
   }

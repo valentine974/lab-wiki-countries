@@ -1,6 +1,6 @@
 // src/App.js
 import './App.css';
-import Countries from './countries.json';
+// import Countries from './countries.json';
 import NavBar from './components/NavBar.jsx';
 import CountriesList from './components/CountriesList.jsx';
 import CountryDetails from './components/CountryDetails.jsx';
