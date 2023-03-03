@@ -1,35 +1,20 @@
-import {NavLink, useParams } from "react-router-dom"; 
+import { useParams } from "react-router-dom"; 
 import { useState, useEffect } from "react";
 
-function CountryDetails(props) {
+function CountryDetails({countryList}) {
 
-const [country, setCountry] = useState({})   
-// const [border, setBorders]=useState({}) 
-const {countryId}= useParams()
-console.log(countryId)
+const [country, setCountry] = useState({})    
+const {countryId}= useParams() 
 
 useEffect(() => {                                    
-   const selectedCountry =  props.countryArray.find((country)=>{
-    return country.alpha3Code === countryId
+   const selectedCountry =  countryList.find((country)=>{ 
+    return countryId.toLowerCase() === country.alpha3Code.toLowerCase();
    })
-   setCountry(selectedCountry)
-   console.log(selectedCountry)
+   setCountry(selectedCountry)  
 
-  console.log(country)
+}, [countryList, countryId, country]);
 
-//    const listBorders = props.countryArray.filter((country)=>{
-//     return country.alpha3code ===
-//    })
-
-
-
-}, [props.countryArray, countryId]);
-
-// const bordersArray = props.countryArray.borders.map((borderCountry) => {
-//     return (
-//         <NavLink to={`/${borderCountry}`}> TEST </NavLink> 
-//     )
-//   });
+ 
 
   
   return ( 
@@ -53,7 +38,7 @@ useEffect(() => {
             <td>Borders</td>
             <td>
               <ul>
-              <li>
+              <li> item test
               {/* {bordersArray} */}
               </li> 
               </ul>

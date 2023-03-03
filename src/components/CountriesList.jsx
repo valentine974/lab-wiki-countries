@@ -1,16 +1,23 @@
 import { NavLink } from "react-router-dom";
 
 
-function CountriesList(props) {
+function CountriesList({countryList}) {
 
-
+    const countryArray = countryList.slice().map((country) => {
+        return (
+          <NavLink to={`/${country.alpha3Code}`} className="list-group-item list-group-item-action"  >
+          <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`}
+              alt="country-flag"
+              width="20px"/>{' '} {country.name.common}{' '} </NavLink>
+        );
+      });
 
   return (
-    <div class="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
+    <div className="col-5" style={{ maxHeight: '90vh', overflow: 'scroll' }}>
       <div className="list-group">
 
 
-        {props.countryArray}
+        {countryArray}
 
       </div>
     </div>
