@@ -1,6 +1,6 @@
 import { useParams, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { values } from "lodash";
+
 
 function CountryDetails({ countryList }) {
 
@@ -13,16 +13,6 @@ function CountryDetails({ countryList }) {
   }, [countryList, countryId]);
 
   const selectedCountry = countryList.find(countryChecked => countryChecked.alpha3Code === countryId)
-
-  // const bordersArray = selectedCountry.borders.map((country) => {
-  //   return (
-  //     // <NavLink to={`/${country.alpha3Code}`} className="list-group-item list-group-item-action" key={country.alpha3Code}>
-  //     //   {' '} {country.name.common}{' '}
-  //     // </NavLink>
-
-  //     { country }
-  //   );
-  // });
 
   // original code for useEffect - Omar why is this not working?
   // useEffect(() => {
@@ -59,8 +49,14 @@ function CountryDetails({ countryList }) {
               {selectedCountry.borders.map((value) => {
                 return (
                   <ul>
-                    <li>
-                      {value}
+                    <li key={value}>
+                      <NavLink to={`/${value}`}>
+                        {
+                          countryList.find(
+                            (country) => country.alpha3Code === value
+                          ).name.common
+                        }
+                      </NavLink>
                     </li>
                   </ul>
                 );
