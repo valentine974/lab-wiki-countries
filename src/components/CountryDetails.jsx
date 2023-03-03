@@ -24,6 +24,8 @@ function CountryDetails({ countryList }) {
 
   // }, [countryId, countryList]);
 
+  // when do we need a key and when do we not?? (maping, navlink) why??
+
 
   return (
     <div className="col-7">
