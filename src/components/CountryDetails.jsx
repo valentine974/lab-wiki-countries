@@ -3,34 +3,33 @@ import { useState, useEffect } from "react";
 
 function CountryDetails({countryList}) {
 
-const [country, setCountry] = useState({})    
+const [countrySelected, setCountry] = useState({})    
 const {countryId}= useParams() 
-
-useEffect(() => {                                    
-   const selectedCountry =  countryList.find((country)=>{ 
-    return countryId.toLowerCase() === country.alpha3Code.toLowerCase();
+console.log(countryId)
+useEffect(() => {    
+    console.log("useEffect working")                                
+   const selectedCountry =  countryList.find((countryChecked)=>{ 
+    return countryId  === countryChecked.alpha3Code 
    })
-   setCountry(selectedCountry)  
+   setCountry(selectedCountry)   
 
-}, [countryList, countryId, country]);
-
- 
+}, [countryId, countryList]);
 
   
-  return ( 
+  return (  
      <div className="col-7">
-      <h1>{country.name.common}</h1>
+      <h1>{countrySelected.name.common}</h1>
       <table className="table">
         <thead></thead>
         <tbody>
           <tr> 
             <td style={{width: '30%'}}>Capital</td>
-            <td>{country.capital}</td>
+            <td>{countrySelected.capital}</td>
           </tr>
           <tr>
             <td>Area</td>
             <td>
-            {country.area} km
+            {countrySelected.area} km
               <sup>2</sup>
             </td>
           </tr>
